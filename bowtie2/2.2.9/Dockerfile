@@ -19,8 +19,8 @@ FROM darcyabjones/base
 USER root
 
 ENV URL https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.2.9/bowtie2-2.2.9-linux-x86_64.zip/download
-ENV ARCHIVE_FILE /home/biodocker/bin/bowtie2-2.2.9-linux-x86_64.zip
-ENV BUILD_DIR /home/biodocker/bin/bowtie2-2.2.9
+ENV ARCHIVE_FILE /home/user/bin/bowtie2-2.2.9-linux-x86_64.zip
+ENV BUILD_DIR /home/user/bin/bowtie2-2.2.9
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     unzip \
@@ -32,7 +32,7 @@ RUN wget -qO $ARCHIVE_FILE $URL \
     && find $ARCHIVE_DIR -perm /a+x -type f -exec mv {} /usr/local/bin \; \
     && rm -rf -- $BUILD_DIR
 
-USER biodocker
+USER user
 
 CMD ["bowtie"]
 
