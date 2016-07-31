@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 RUN mkdir /data /config
 
 # Add user biodocker with password biodocker
-RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo user \
-    && echo `echo "1234\n1234\n" | passwd user` \
+RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 user \
     && chown user:user /data \
     && chown user:user /config
 
