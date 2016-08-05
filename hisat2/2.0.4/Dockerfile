@@ -18,6 +18,7 @@ ENV ARCHIVE_FILE /home/user/bin/hisat.zip
 ENV BUILD_DIR /home/user/bin/hisat2-2.0.4
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
+    python \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
