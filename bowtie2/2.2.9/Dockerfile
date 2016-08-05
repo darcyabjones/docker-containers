@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 RUN wget -qO $ARCHIVE_FILE $URL \
     && unzip -d $BUILD_DIR $ARCHIVE_FILE \
     && rm $ARCHIVE_FILE \
-    && find $ARCHIVE_DIR -perm /a+x -type f -exec mv {} /usr/local/bin \; \
+    && find $BUILD_DIR -perm /a+x -type f -exec mv {} /usr/local/bin \; \
     && rm -rf -- $BUILD_DIR
 
 USER user
